@@ -19,7 +19,7 @@ Players decide who goes first; one player is "X," and the other is "O."
 ### Strategy:
 * The key to winning is blocking your opponent from getting three in a row while also trying to create your own winning sequences.
 
-## Minimax Algorithm
+# Minimax Algorithm
 The Minimax algorithm is a strategy used in two-player games, and it's particularly well-suited for games like tic-tac-toe. The goal of Minimax is to find the best move for a player, assuming that the opponent will also make optimal moves. It's called "Minimax" because it involves minimizing the possible loss for the worst-case scenario and maximizing the potential gain for the best-case scenario.
 
 ## Here's how the Minimax algorithm works in the context of tic-tac-toe:
@@ -81,3 +81,81 @@ The game prints messages indicating the outcome (winner, draw) and continues unt
 
 ## Code Execution
 > python3 MiniMax.py
+
+# Alpha-beta Pruning
+Alpha-beta pruning is an optimization technique used in the Minimax algorithm to reduce the number of nodes evaluated in the search tree. This helps improve the efficiency of the algorithm by eliminating branches that are guaranteed to be irrelevant to the final decision. Alpha-beta pruning is particularly useful in games like tic-tac-toe, where the game tree can become quite large.
+
+## Here's a simplified explanation of how alpha-beta pruning works in the context of tic-tac-toe:
+
+### Alpha and Beta Values:
+* In addition to the Minimax algorithm's basic structure, two values, alpha and beta, are maintained. They represent the minimum score that the maximizing player is assured of and the maximum score that the minimizing player is assured of, respectively.
+* Initially, alpha is set to negative infinity, and beta is set to positive infinity.
+
+### Pruning Conditions:
+* During the recursive search of the game tree, if the current player (maximizing or minimizing) finds a move that is guaranteed to be worse than the current best move, it can stop evaluating further nodes in that branch. This is where the pruning occurs.
+* If, at any point, the current player's score is greater than or equal to beta (for the maximizing player) or less than or equal to alpha (for the minimizing player), further exploration of that branch is unnecessary.
+
+### Update Alpha and Beta:
+* As the algorithm progresses, alpha and beta are updated accordingly. For the maximizing player, alpha is updated to the maximum of its current value and the newly found score. For the minimizing player, beta is updated to the minimum of its current value and the newly found score.
+
+### Efficiency Improvement:
+* By pruning branches that are guaranteed to be suboptimal, the search space is significantly reduced, leading to a more efficient algorithm.
+* Alpha-beta pruning has a time complexity that is considerably better than the simple Minimax algorithm, especially when the game tree is large.
+
+## Here's a high-level overview of the alpha-beta pruning process:
+
+### Maximizing Player's Turn:
+* If the current move's score is greater than or equal to beta, stop searching in this branch.
+* Update alpha to be the maximum of its current value and the current move's score.
+
+### Minimizing Player's Turn:
+* If the current move's score is less than or equal to alpha, stop searching in this branch.
+* Update beta to be the minimum of its current value and the current move's score.
+
+### Repeat:
+* Continue the process, exploring the game tree and updating alpha and beta until a terminal state is reached.
+
+Alpha-beta pruning significantly reduces the number of nodes evaluated while preserving the minimax algorithm's ability to find the optimal move. In tic-tac-toe and similar games, this can lead to substantial computational savings.
+
+## Code Explanation
+
+### startPlayingGame() Function:
+* Initializes an empty Tic Tac Toe grid with 9 spaces represented by a list.
+* Alternates turns between the player and the AI until there is a winner or a draw.
+* Calls drawGrid() to display the current state of the grid.
+* Checks for a winner or a draw using the checkWinner() and checkDraw() functions.
+
+### drawGrid(grid) Function:
+* Takes the current state of the grid and prints it in the Tic Tac Toe board format.
+
+### getPlayersMove(grid) Function:
+* Prompts the player to enter a move (a number between 1 and 9).
+* Checks if the input is valid (a digit between 1 and 9, and the chosen cell is not already filled).
+* Returns the player's move.
+
+### getAgentsMove(grid) Function:
+* Calls the alphabeta() function to get the AI agent's move.
+* Returns the move chosen by the AI.
+
+### alphabeta(grid, isMaximizing, alpha, beta) Function:
+* Implements the Alpha-Beta Pruning algorithm to determine the optimal move for the AI agent.
+* Recursively evaluates possible moves, assigning scores based on the outcome of the game.
+* Keeps track of alpha and beta values to prune branches that cannot affect the final decision.
+* Returns the score and the corresponding move.
+
+### checkWinner(grid) Function:
+* Checks the grid for a winning combination by iterating through possible winning moves.
+* Returns True if there is a winner, otherwise False.
+
+### checkDraw(grid) Function:
+* Checks if the grid is completely filled, indicating a draw.
+* Returns True if there is a draw, otherwise False.
+
+### if __name__ == "__main__": block:
+* Calls the startPlayingGame() function to begin the game when the script is run.
+
+In summary, this code provides a functional Tic Tac Toe game where a player can compete against an AI agent using the Alpha-Beta Pruning algorithm to make intelligent moves. The game continues until there is a winner or a draw.
+
+## Code Execution
+> python3 AlphaBeta.py
+
