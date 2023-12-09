@@ -66,6 +66,32 @@ The Minimax algorithm is a strategy used in two-player games, and it's particula
 
 By systematically exploring the game tree and considering all possible outcomes, Minimax ensures that the player makes the best move based on the assumption that the opponent will also make optimal moves. In the case of tic-tac-toe, the algorithm guarantees that the player will never lose if a winning move is available, and it will aim for a draw if no winning move is possible.
 
+## Code Explanation 
+
+### Initialization: 
+The game starts with an empty grid and a variable to track whose turn it is (playerTurn).
+
+### Game Loop: 
+The main game loop continues until there is a winner or a draw. In each iteration, it alternates between the player and the agent.
+
+### Display Grid: 
+The drawGrid function is responsible for displaying the current state of the grid.
+
+### Player's Move: 
+The player is prompted to enter their move, and input validation is performed to ensure the move is valid.
+
+### Agent's Move: 
+The agent's move is determined using the Min-Max algorithm in the getAgentsMove function.
+
+### Min-Max Algorithm: 
+The miniMax function implements the Min-Max algorithm to determine the best move for the agent. It considers the current state of the grid and recursively explores possible moves.
+
+### Check Winner and Draw: 
+Functions checkWinner and checkDraw are used to determine if there is a winner or if the game is a draw.
+
+### Game Outcome: 
+The game prints messages indicating the outcome (winner, draw) and continues until the game is over.
+
 ## Code Execution
 
 > python3 MiniMax.py
