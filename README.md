@@ -11,50 +11,60 @@ Players decide who goes first; one player is "X," and the other is "O."
 
 ### Gameplay:
 
-Players take turns placing their symbol in an empty square on the grid.
-Once a square is marked, it cannot be changed or overwritten.
+* Players take turns placing their symbol in an empty square on the grid.
+* Once a square is marked, it cannot be changed or overwritten.
 
 ### Winning:
 
-A player wins by having three of their symbols in a row horizontally, vertically, or diagonally.
-If the entire grid is filled and no player has three in a row, the game is a draw.
+* A player wins by having three of their symbols in a row horizontally, vertically, or diagonally.
+* If the entire grid is filled and no player has three in a row, the game is a draw.
 
 ### Strategy:
 
-The key to winning is blocking your opponent from getting three in a row while also trying to create your own winning sequences.
+* The key to winning is blocking your opponent from getting three in a row while also trying to create your own winning sequences.
 
-### Minimax Algorithm
+## Minimax Algorithm
 
-The Minimax algorithm is a decision-making algorithm used in two-player turn-based games, such as tic-tac-toe, chess, or checkers. Its primary goal is to find the optimal move for a player, assuming that the opponent is also playing optimally. The algorithm considers all possible future moves and outcomes to determine the best move.
+The Minimax algorithm is a strategy used in two-player games, and it's particularly well-suited for games like tic-tac-toe. The goal of Minimax is to find the best move for a player, assuming that the opponent will also make optimal moves. It's called "Minimax" because it involves minimizing the possible loss for the worst-case scenario and maximizing the potential gain for the best-case scenario.
 
-## Here's a simplified explanation of how the Minimax algorithm works:
-
-### Tree Representation:
-
-The game is represented as a decision tree, where each node represents a possible game state, and each edge represents a possible move.
+## Here's how the Minimax algorithm works in the context of tic-tac-toe:
 
 ### Evaluation Function:
 
-Each leaf node of the tree is evaluated using an "evaluation function." In the context of games like tic-tac-toe, this function assigns a score to each terminal state (win, lose, or draw).
+* Each leaf node of the game tree (a possible board configuration) is assigned a value. In the case of tic-tac-toe, this value could be +1 for a win, -1 for a loss, and 0 for a draw.
+
+### Recursive Search:
+
+* The algorithm recursively explores the game tree, starting from the current board state and considering all possible future moves.
 
 ### Maximizing and Minimizing:
-The algorithm alternates between two players: the "maximizing player" (usually the AI) and the "minimizing player" (the opponent).
-The maximizing player aims to maximize the score, while the minimizing player aims to minimize the score.
 
-### Recursion:
+* The algorithm alternates between two players, the maximizing player (trying to maximize its score, usually representing the AI) and the minimizing player (trying to minimize the score, representing the opponent).
+* At each level of the tree, the maximizing player chooses the move with the highest value, and the minimizing player chooses the move with the lowest value.
 
-Starting from the root of the tree (current game state), the algorithm recursively explores possible moves, creating a subtree for each move.
-At each level, the maximizing player chooses the move with the highest score, while the minimizing player chooses the move with the lowest score.
+### Backtracking:
 
-# Backtracking:
-
-As the recursion goes deeper, the scores are propagated back up the tree. The algorithm keeps track of the best score at each level.
+* As the algorithm explores deeper levels of the tree, it keeps track of the best move at each level, backtracking towards the root.
 
 ### Optimal Move:
 
-Once the entire tree is explored, the algorithm returns the move that leads to the highest score for the maximizing player. This is considered the optimal move assuming both players play optimally.
+* Once the entire tree is explored, the algorithm returns the move that leads to the best outcome for the current player, assuming optimal play from both sides.
 
-In summary, Minimax explores all possible game states, assigning scores to terminal states and backtracking to determine the best move for the current player. While effective for small games like tic-tac-toe, the exponential growth in the number of possibilities makes Minimax impractical for larger games without additional optimizations, such as alpha-beta pruning.
+## Here's a high-level overview of the process:
+
+### Maximizing Player's Turn:
+
+* The maximizing player considers all possible moves and chooses the one with the highest value.
+
+### Minimizing Player's Turn:
+
+* The minimizing player considers all possible responses to the maximizing player's move and chooses the one with the lowest value.
+
+### Repeat:
+
+* The process continues until a terminal state is reached (win, lose, or draw).
+
+By systematically exploring the game tree and considering all possible outcomes, Minimax ensures that the player makes the best move based on the assumption that the opponent will also make optimal moves. In the case of tic-tac-toe, the algorithm guarantees that the player will never lose if a winning move is available, and it will aim for a draw if no winning move is possible.
 
 ## Code Execution
 
