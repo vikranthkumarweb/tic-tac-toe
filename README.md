@@ -55,29 +55,41 @@ By systematically exploring the game tree and considering all possible outcomes,
 
 ## Code Explanation 
 
-### Initialization: 
-The game starts with an empty grid and a variable to track whose turn it is (playerTurn).
+### startPlayingGame function:
+* Initializes the game grid, which is a list representing the Tic Tac Toe board with 9 cells.
+* Alternates turns between the player and the AI agent until the game is won or drawn.
+* Calls other functions to get moves from the player and the AI, updates the grid, and checks for a winner or draw.
 
-### Game Loop: 
-The main game loop continues until there is a winner or a draw. In each iteration, it alternates between the player and the agent.
+### drawGrid function:
+* Prints the current state of the Tic Tac Toe board.
 
-### Display Grid: 
-The drawGrid function is responsible for displaying the current state of the grid.
+### getPlayersMove function:
+* Takes user input for the player's move.
+* Validates the input to ensure it is a digit between 1 and 9 and that the chosen cell is empty.
+* Returns the index of the chosen cell in the grid.
 
-### Player's Move: 
-The player is prompted to enter their move, and input validation is performed to ensure the move is valid.
+### getAgentsMove function:
+* Implements the AI agent's move using the Min-Max algorithm.
+* Iterates through empty cells on the board, simulates placing the AI's symbol (O) in each empty cell, and evaluates the resulting score using the miniMax function.
+* Returns the index of the best move for the AI.
 
-### Agent's Move: 
-The agent's move is determined using the Min-Max algorithm in the getAgentsMove function.
+### miniMax function:
+* Recursively evaluates the game state to determine the optimal move for the AI.
+* Returns a score (-1 for loss, 0 for draw, 1 for win) based on the current state of the board.
+* The function alternates between maximizing (AI's turn) and minimizing (player's turn) to find the best move.
 
-### Min-Max Algorithm: 
-The miniMax function implements the Min-Max algorithm to determine the best move for the agent. It considers the current state of the grid and recursively explores possible moves.
+### checkWinner function:
+* Checks if any of the winning combinations are present on the board.
+* Returns True if there is a winner, False otherwise.
 
-### Check Winner and Draw: 
-Functions checkWinner and checkDraw are used to determine if there is a winner or if the game is a draw.
+### checkDraw function:
+* Checks if the game is a draw (all cells on the board are filled).
+* Returns True if it's a draw, False otherwise.
 
-### Game Outcome: 
-The game prints messages indicating the outcome (winner, draw) and continues until the game is over.
+### if __name__ == "__main__": block:
+* Executes the game by calling the startPlayingGame function when the script is run.
+
+In summary, the code provides a playable Tic Tac Toe game where the player competes against an AI agent using the Min-Max algorithm to make optimal moves. The game continues until there is a winner or a draw.
 
 ## Code Execution
 > python3 MiniMax.py
