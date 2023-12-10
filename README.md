@@ -194,7 +194,7 @@ Q-learning can be applied to tic-tac-toe as a way to create an agent that learns
 ### Q-Value Update:
 * After taking an action and receiving a reward, update the Q-value for the state-action pair using the Q-learning update rule:
 
-
+```
     Q(s,a)=Q(s,a)+α⋅[R+γ⋅maxa′​Q(s′,a′)−Q(s,a)]
 
         • Q(s,a) is the current Q-value for the state-action pair.
@@ -202,9 +202,7 @@ Q-learning can be applied to tic-tac-toe as a way to create an agent that learns
         • R is the received reward.
         • γ is the discount factor.
         • s′ is the next state after taking action a.
-
-
-
+```
 
 ### Training Episodes:
 * Repeat the training process for a certain number of episodes or until convergence. During each episode, the agent plays tic-tac-toe, updates its Q-values based on the rewards received, and refines its strategy.
@@ -219,6 +217,40 @@ Q-learning allows the agent to gradually learn an optimal strategy for playing t
 
 ## Code Explanation
 
+### Initialization:
+* Q: A dictionary to store Q-values for state-action pairs.
+* alpha: Learning rate.
+* gamma: Discount factor.
+* epsilon: Exploration probability for the epsilon-greedy policy.
+* stateSpace: Represents the game board with a 3x3 grid.
+* actionSpace: Represents all possible actions (row, column) in the game.
+
+### Reward Function:
+* The reward function evaluates the current state and returns:
+- 1 if the player wins.
+- -1 if the agent wins.
+- 0 if the game is ongoing.
+
+### Epsilon-Greedy Policy:
+* The epsilonGreedyPolicy function implements an epsilon-greedy policy for action selection.
+* With probability epsilon, it selects a random action; otherwise, it chooses the action with the highest Q-value.
+* Handles cases where multiple actions have the same maximum Q-value.
+
+### Q-Learning Algorithm:
+* The qLearning function updates Q-values based on the Q-learning formula.
+* state and nextState are converted to tuples to use them as keys in the Q dictionary.
+* The Q-value for the current state-action pair is updated based on the immediate reward and the maximum Q-value of the next state.
+
+### Game Initialization and Loop:
+* The game is initialized with an empty board (stateSpace).
+* The game alternates between the player's turn and the agent's turn.
+* The player and agent make moves based on input and the epsilon-greedy policy.
+* The game loop breaks when there is a winner or a tie.
+
+### Updating Q-Values:
+* After the game loop, the Q-values are updated using the qLearning function with the final state, action, reward, and hyperparameters.
+
+In summary, this code sets up a Q-learning framework for a Tic Tac Toe game. It uses the Q-learning algorithm to update Q-values based on the rewards obtained during the game. The player and agent take turns making moves, and the Q-values are updated to improve the agent's strategy over time.
 
 ## Code Execution
 > python3 QLearning.py
