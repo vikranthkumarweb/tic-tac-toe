@@ -24,6 +24,8 @@ Players decide who goes first; one player is "X," and the other is "O."
 # Minimax Algorithm
 The Minimax algorithm is a strategy used in two-player games, and it's particularly well-suited for games like tic-tac-toe. The goal of Minimax is to find the best move for a player, assuming that the opponent will also make optimal moves. It's called "Minimax" because it involves minimizing the possible loss for the worst-case scenario and maximizing the potential gain for the best-case scenario.
 
+![image](https://github.com/vikranthkumarweb/tic-tac-toe/assets/147024416/7065b04f-48cd-4e78-9107-c301ce9d3285)
+
 ## Here's how the Minimax algorithm works in the context of tic-tac-toe:
 
 ### Evaluation Function:
@@ -98,6 +100,8 @@ In summary, the code provides a playable Tic Tac Toe game where the player compe
 
 # Alpha-beta Pruning
 Alpha-beta pruning is an optimization technique used in the Minimax algorithm to reduce the number of nodes evaluated in the search tree. This helps improve the efficiency of the algorithm by eliminating branches that are guaranteed to be irrelevant to the final decision. Alpha-beta pruning is particularly useful in games like tic-tac-toe, where the game tree can become quite large.
+
+![WhatsApp Image 2023-11-30 at 8 01 39 PM](https://github.com/vikranthkumarweb/tic-tac-toe/assets/147024416/486f079c-e477-4877-81d9-6e4525035e48)
 
 ## Here's a simplified explanation of how alpha-beta pruning works in the context of tic-tac-toe:
 
