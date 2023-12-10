@@ -227,9 +227,9 @@ Q-learning allows the agent to gradually learn an optimal strategy for playing t
 
 ### reward(state) Function:
 * The reward function evaluates the current state and returns:
-- 1 if the player wins.
-- -1 if the agent wins.
-- 0 if the game is ongoing.
+    - 1 if the player wins.
+    - -1 if the agent wins.
+    - 0 if the game is ongoing.
 
 ### epsilonGreedyPolicy(state, epsilon) Function:
 * The epsilonGreedyPolicy function implements an epsilon-greedy policy for action selection.
