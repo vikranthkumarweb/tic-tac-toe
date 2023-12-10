@@ -196,13 +196,14 @@ Q-learning can be applied to tic-tac-toe as a way to create an agent that learns
 
 ```
 Q(s,a)=Q(s,a)+α⋅[R+γ⋅maxa′​Q(s′,a′)−Q(s,a)]
-```
-
 - Q(s,a) is the current Q-value for the state-action pair.
 - α is the learning rate.
 - R is the received reward.
 - γ is the discount factor.
 - s′ is the next state after taking action a.
+```
+
+
 
 ### Training Episodes:
 * Repeat the training process for a certain number of episodes or until convergence. During each episode, the agent plays tic-tac-toe, updates its Q-values based on the rewards received, and refines its strategy.
