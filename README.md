@@ -195,12 +195,13 @@ Q-learning can be applied to tic-tac-toe as a way to create an agent that learns
 * After taking an action and receiving a reward, update the Q-value for the state-action pair using the Q-learning update rule:
 
 ```
-Q(s,a)=Q(s,a)+α⋅[R+γ⋅maxa′​Q(s′,a′)−Q(s,a)]
-- Q(s,a) is the current Q-value for the state-action pair.
-- α is the learning rate.
-- R is the received reward.
-- γ is the discount factor.
-- s′ is the next state after taking action a.
+    Q(s,a)=Q(s,a)+α⋅[R+γ⋅maxa′​Q(s′,a′)−Q(s,a)]
+
+    - Q(s,a) is the current Q-value for the state-action pair.
+    - α is the learning rate.
+    - R is the received reward.
+    - γ is the discount factor.
+    - s′ is the next state after taking action a.
 ```
 
 
