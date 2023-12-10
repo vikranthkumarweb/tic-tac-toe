@@ -172,6 +172,48 @@ In summary, this code provides a functional Tic Tac Toe game where a player can 
 > python3 AlphaBeta.py
 
 # Q-learning
+Q-learning can be applied to tic-tac-toe as a way to create an agent that learns to play the game through trial and error. Q-learning is a model-free reinforcement learning algorithm that learns a policy for making decisions in an environment by iteratively updating its Q-values based on the observed rewards.
+
+### Here's a step-by-step explanation of applying Q-learning to tic-tac-toe:
+
+### State Representation:
+* Define a representation for the current state of the tic-tac-toe board. This representation should be unique for each possible board configuration.
+
+### Action Representation:
+* Define the possible actions an agent can take in a given state. In tic-tac-toe, an action corresponds to placing an "X" or "O" in a particular empty cell.
+
+### Q-Table Initialization:
+* Create a Q-table to store the Q-values for each state-action pair. Initially, the Q-values are often set to zero.
+
+### Exploration-Exploitation:
+* During training, the agent needs to explore the environment to discover optimal strategies. The agent chooses actions with a balance between exploration and exploitation. This can be achieved using an epsilon-greedy strategy, where the agent explores with probability epsilon and exploits with probability 1 - epsilon.
+
+### Reward Definition:
+* Define the rewards for different outcomes. For tic-tac-toe, a positive reward can be given for winning, a negative reward for losing, and a small reward or zero for a draw.
+
+### Q-Value Update:
+* After taking an action and receiving a reward, update the Q-value for the state-action pair using the Q-learning update rule:
+
+```
+Q(s,a)=Q(s,a)+α⋅[R+γ⋅maxa′​Q(s′,a′)−Q(s,a)]
+```
+
+- Q(s,a) is the current Q-value for the state-action pair.
+- α is the learning rate.
+- R is the received reward.
+- γ is the discount factor.
+- s′ is the next state after taking action a.
+
+### Training Episodes:
+* Repeat the training process for a certain number of episodes or until convergence. During each episode, the agent plays tic-tac-toe, updates its Q-values based on the rewards received, and refines its strategy.
+
+### Policy Extraction:
+* After training, the agent's policy can be extracted from the learned Q-values. The agent chooses actions in a state based on the action with the highest Q-value.
+
+### Testing:
+* Evaluate the agent's performance by letting it play tic-tac-toe using its learned policy.
+
+Q-learning allows the agent to gradually learn an optimal strategy for playing tic-tac-toe by interacting with the environment, receiving feedback in the form of rewards, and updating its Q-values accordingly. Over time, the agent should converge to a strategy that maximizes its expected cumulative reward in the game.
 
 ## Code Explanation
 
