@@ -2,7 +2,7 @@
 
 Tic-tac-toe is a classic two-player game that is played on a 3x3 grid. The players take turns marking a square with their designated symbol, usually "X" for one player and "O" for the other. The goal of the game is to get three of your symbols in a row, either horizontally, vertically, or diagonally.
 
-![image](https://github.com/vikranthkumarweb/tic-tac-toe/assets/147024416/86f4c297-95fe-4847-9fde-6d9bdfade6d2)
+![image](https://github.com/vikranthkumarweb/tic-tac-toe/assets/147024416/6986b676-3de4-4f43-84bf-c4537a08d578)
 
 ## Here are the basic rules:
 
