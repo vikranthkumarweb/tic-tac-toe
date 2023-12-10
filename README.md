@@ -262,3 +262,6 @@ In summary, this code sets up a Q-learning framework for a Tic Tac Toe game. It 
 
 ## Code Execution
 > python3 QLearning.py
+
+# Conclusion
+In conclusion, the provided code covers three different approaches to playing Tic Tac Toe: the Minimax algorithm, the Alpha-Beta Pruning, and the Q-learning reinforcement learning algorithm.
