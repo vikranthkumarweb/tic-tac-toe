@@ -180,6 +180,8 @@ In summary, this code provides a functional Tic Tac Toe game where a player can 
 # Q-learning
 Q-learning can be applied to tic-tac-toe as a way to create an agent that learns to play the game through trial and error. Q-learning is a model-free reinforcement learning algorithm that learns a policy for making decisions in an environment by iteratively updating its Q-values based on the observed rewards.
 
+![image](https://github.com/vikranthkumarweb/tic-tac-toe/assets/147024416/3170aee5-d78b-41fd-ae99-f4d44bd70777)
+
 ### Here's a step-by-step explanation of applying Q-learning to tic-tac-toe:
 
 ### State Representation:
